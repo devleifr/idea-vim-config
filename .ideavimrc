@@ -91,9 +91,9 @@ map <leader>wv <Action>(SplitVertically)
 " Create a horizontal split
 map <leader>wh <Action>(SplitHorizontally)
 " Close the current split
-map <leader>ww <Action>(Unsplit)
+map <leader>wc <Action>(Unsplit)
 " Close all splits, keeping only one window
-map <leader>wa <Action>(UnsplitAll)
+map <leader>wo <Action>(UnsplitAll)
 
 " Move to the left split
 map <A-j> <C-w>h
