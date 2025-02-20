@@ -1,0 +1,280 @@
+" ==================================
+" Leader Key Configuration
+" ==================================
+
+" Set leader key to space instead of '\'
+let mapleader = ' '
+
+" ==================================
+" Config File Management
+" ==================================
+
+" Open IdeaVIM config
+noremap <leader>vce :edit ~/.ideavimrc<cr>
+" Reload config & clear search highlights (FIX: Vim highlights last search after sourcing)
+noremap <leader>vcs :source ~/.ideavimrc<cr>:nohlsearch<cr>
+
+" ==================================
+" IDE Management
+" ==================================
+
+" Restart the IDE
+map <leader>ir <Action>(RestartIde)
+
+" ==================================
+" Navigation within the File
+" ==================================
+
+" Navigate left
+noremap j h
+" Navigate down
+noremap k j
+" Navigate up
+noremap l k
+" Navigate right
+noremap ; l
+" Move to the next occurrence of a character
+noremap ' ;
+" Use black hole register (discard copied text)
+noremap \ "_
+
+" ==================================
+" Clipboard Settings
+" ==================================
+
+" Sync Vim Registers with the OS Clipboard
+set clipboard^=unnamed,unnamedplus
+
+" ==================================
+" Bracket Matching & Line Joining
+" ==================================
+
+" Allow jumping between <angle brackets>
+set matchpairs+=<:>
+" Improve line joining (TODO: extend for Clojure)
+set ideajoin
+
+" ==================================
+" Search Behavior
+" ==================================
+
+" Highlight search results
+set hlsearch
+" Remove search highlights
+nnoremap <Esc> :nohlsearch<cr>
+" Case-insensitive search by default
+set ignorecase
+" Case-sensitive search when uppercase is used
+set smartcase
+" Enable incremental search
+set incsearch
+
+" ==================================
+" Word Navigation (supports camelCase, snake_case & kebab-case)
+" ==================================
+
+" Move to the beginning of the next word
+map w [w
+" Move to the end of the next word
+map e ]w
+" Move to the beginning of the previous word
+map b [b
+ " Move to the end of the previous word
+map ge ]b
+
+" ==================================
+" Tabs & Window Management
+" ==================================
+
+" Create a vertical split
+map <leader>wv <Action>(SplitVertically)
+" Create a horizontal split
+map <leader>wh <Action>(SplitHorizontally)
+" Close the current split
+map <leader>ww <Action>(Unsplit)
+" Close all splits, keeping only one window
+map <leader>wa <Action>(UnsplitAll)
+
+" Move to the left split
+map <A-j> <C-w>h
+" Move to the split below
+map <A-k> <C-w>j
+" Move to the split above
+map <A-l> <C-w>k
+" Move to the right split
+map <A-;> <C-w>l
+
+" Switch to the next tab
+map <leader>tn <Action>(NextTab)
+" Switch to the previous tab
+map <leader>tp <Action>(PreviousTab)
+
+" ==================================
+" Navigation: Project & Code Structure
+" ==================================
+
+" Jump to class by name
+map <leader>sc <Action>(GotoClass)
+" Jump to file by name
+map <leader>sf <Action>(GotoFile)
+" Jump to symbol (method, variable, etc.)
+map <leader>ss <Action>(GotoSymbol)
+" Jump to action (any IntelliJ command)
+map <leader>sa <Action>(GotoAction)
+" Jump to namespace/package/module
+map <leader>sn <Action>(GotoNamespace)
+" Jump to specific keywords in the project
+map <leader>sk <Action>(GotoKeyword)
+
+" Copy the absolute file path
+map <leader>fa <Action>(CopyAbsolutePath)
+" Copy the file name
+map <leader>fn <Action>(CopyFileName)
+" Copy the project-relative file path
+map <leader>fp <Action>(CopyContentRootPath)
+
+" ==================================
+" Navigation: Code
+" ==================================
+
+" Go to definition/declaration of symbol under cursor
+map <leader>gd <Action>(GotoDeclaration)
+" Go to the type definition of a variable
+map <leader>gy <Action>(GotoTypeDeclaration)
+" Jump to implementation of an interface or abstract method
+map <leader>gi <Action>(GotoImplementation)
+" Jump to test for the current class/method
+map <leader>gt <Action>(GotoTest)
+" Jump to overridden method in the parent class
+map <leader>gm <Action>(GotoSuperMethod)
+" Jump to a specific line number
+map <leader>gl <Action>(GotoLine)
+
+" ==================================
+" Code Analysis & Usages
+" ==================================
+
+" Find all usages of the symbol under cursor
+map <leader>ug <Action>(FindUsages)
+" Show usages in a pop-up (alternative to Find Usages)
+map <leader>uu <Action>(ShowUsages)
+" View source of the definition (even for external libraries)
+map <leader>vs <Action>(ViewSource)
+
+" ==================================
+" Quick Info & Type Inspection
+" ==================================
+
+" Show possible implementations of an interface or method
+map <leader>im <Action>(QuickImplementations)
+" Show type definition without jumping
+map <leader>td <Action>(QuickTypeDefinition)
+" Show type of the expression under cursor
+map <leader>ti <Action>(ExpressionTypeInfo)
+" Show additional information about symbol under cursor (e.g. documentation)
+map <leader>sh <Action>(ShowHoverInfo)
+" Show file structure (outline of classes, methods, etc.)
+map <leader>oo <Action>(FileStructurePopup)
+
+" ==================================
+" Find & Replace
+" ==================================
+
+" Opens the find dialog in the current file
+map <S-f> <Action>(Find)
+" Opens the replace dialog in the current file
+map <S-r> <Action>(Replace)
+" Opens the global search dialog in the project
+map <leader>ff <Action>(FindInPath)
+" Opens the global replace dialog in the project
+map <leader>fr <Action>(ReplaceInPath)
+
+" ==================================
+" Refactoring & Formatting
+" ==================================
+
+" Renames the selected element (variable, method, class, etc.)
+map <leader>rn <Action>(RenameElement)
+" Extracts the selected code into a new method
+map <leader>rm <Action>(ExtractMethod)
+" Introduces a new variable from the selected expression
+map <leader>rv <Action>(IntroduceVariable)
+" Introduces a new field from the selected expression
+map <leader>rf <Action>(IntroduceField)
+" Opens the Change Signature dialog to modify method parameters
+map <leader>rs <Action>(ChangeSignature)
+" Opens the refactoring quick list popup
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+" Format the current file according to coding standards
+map <leader>cf <Action>(ReformatCode)
+" Optimize imports by removing unused ones and sorting existing imports
+map <leader>co <Action>(OptimizeImports)
+" Rearrange code elements according to project structure settings
+map <leader>cr <Action>(RearrangeCode)
+
+" ==================================
+" Code Editing & Generation
+" ==================================
+
+" Shows intention actions (quick fixes, suggestions, etc.)
+map <leader>aa <Action>(ShowIntentionActions)
+" Opens the 'Surround With' menu to wrap code with if, try-catch, etc.
+map <leader>sw <Action>(SurroundWith)
+" Opens the 'Generate' menu (for constructors, getters/setters, etc.)
+map <S-space> <Action>(Generate)
+" Duplicates the current line or selected block
+map <C-d> <Action>(EditorDuplicateLines)
+" Completes the current statement and moves to the next line
+map <C-[> <Action>(EditorCompleteStatement)
+
+" Move the current line down
+map <C-k> <Action>(MoveLineDown)
+" Move the current line up
+map <C-l> <Action>(MoveLineUp)
+" Move the current statement down
+map <C-i> <Action>(MoveStatementDown)
+" Move the current statement up
+map <C-o> <Action>(MoveStatementUp)
+
+" ==================================
+" Navigation & History Shortcuts
+" ==================================
+
+" Jump to the next error or warning in the file
+map <leader>en <Action>(GotoNextError)
+" Jump to the previous error or warning in the file
+map <leader>ep <Action>(GotoPreviousError)
+" Jump to the last change made in the file
+map <leader>lc <Action>(JumpToLastChange)
+" Open the 'Recent Locations' popup (recently edited places)
+map <leader>ll <Action>(RecentLocations)
+" Open the 'Recent Files' popup
+map <C-;> <Action>(RecentFiles)
+" Navigate forward in navigation history
+map <S-k> <Action>(Forward)
+" Navigate backward in navigation history
+map <S-l> <Action>(Back)
+" Move to the method/function above the current position
+map <A-[> <Action>(MethodUp)
+" Move to the method/function below the current position
+map <A-]> <Action>(MethodDown)
+
+" ==================================
+" File operations
+" ==================================
+
+" Create a new file
+map <leader>fn <Action>(NewFile)
+" Create a new directory
+map <leader>fd <Action>(NewDir)
+" Rename the current file
+map <leader>fr <Action>(RenameFile)
+" Open an existing file
+map <leader>fo <Action>(OpenFile)
+" Create a new scratch file
+map <leader>fs <Action>(NewScratchFile)
+" Close the current file
+map <leader>qc <Action>(CloseContent)
+" Close all opened files
+map <leader>qa <Action>(CloseAllEditors)
