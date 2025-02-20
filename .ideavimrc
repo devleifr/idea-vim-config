@@ -292,3 +292,48 @@ map <leader>gg <Action>(ActivateVersionControlToolWindow)
 map <leader>gm <Action>(Vcs.QuickListPopupAction)
 " Show Git blame
 map <leader>gba <Action>(Annotate)
+
+" ==================================
+" Paredit (Structural Editing)
+" ==================================
+
+" Navigation inside S-expressions
+nmap <leader>kf <Action>(:cursive.actions.paredit/forward)
+nmap <leader>kb <Action>(:cursive.actions.paredit/backward)
+nmap <leader>kd <Action>(:cursive.actions.paredit/forward-down)
+nmap <leader>ku <Action>(:cursive.actions.paredit/backward-up)
+
+" Slurping (expand form to include next/previous)
+nmap <leader>ksf <Action>(:cursive.actions.paredit/slurp-forwards)
+nmap <leader>ksb <Action>(:cursive.actions.paredit/slurp-backwards)
+
+" Barfing (contract form by pushing out elements)
+nmap <leader>kbf <Action>(:cursive.actions.paredit/barf-forwards)
+nmap <leader>kbb <Action>(:cursive.actions.paredit/barf-backwards)
+
+" Wrapping expressions
+nmap <leader>kw( <Action>(:cursive.actions.paredit/wrap-paren)
+nmap <leader>kw[ <Action>(:cursive.actions.paredit/wrap-square)
+nmap <leader>kw{ <Action>(:cursive.actions.paredit/wrap-curly)
+
+" Splicing (remove outer delimiters)
+nmap <leader>ksp <Action>(:cursive.actions.paredit/splice)
+
+" Splitting & Joining expressions
+nmap <leader>kS <Action>(:cursive.actions.paredit/split)
+nmap <leader>kJ <Action>(:cursive.actions.paredit/join)
+
+" Moving forms up/down
+nmap <leader>ktf <Action>(:cursive.actions.paredit/move-form-down)
+nmap <leader>ktb <Action>(:cursive.actions.paredit/move-form-up)
+
+" Raising (replace enclosing form with its content)
+nmap <leader>kr <Action>(:cursive.actions.paredit/raise)
+
+" Killing expressions
+nmap <leader>kK <Action>(:cursive.actions.paredit/kill)
+nmap <leader>kk <Action>(:cursive.actions.paredit/kill-sexp)
+
+" Threading macros (-> and ->>)
+nmap <leader>k> <Action>(:cursive.actions.paredit/thread-form)
+nmap <leader>k< <Action>(:cursive.actions.paredit/unthread-form)
