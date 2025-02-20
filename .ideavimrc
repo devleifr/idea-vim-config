@@ -114,17 +114,17 @@ map <leader>bp <Action>(PreviousTab)
 " ==================================
 
 " Jump to class by name
-map <leader>sc <Action>(GotoClass)
+map <leader>pc <Action>(GotoClass)
 " Jump to file by name
-map <leader>sf <Action>(GotoFile)
+map <leader>pf <Action>(GotoFile)
 " Jump to symbol (method, variable, etc.)
-map <leader>ss <Action>(GotoSymbol)
+map <leader>ps <Action>(GotoSymbol)
 " Jump to action (any IntelliJ command)
-map <leader>sa <Action>(GotoAction)
+map <leader>aa <Action>(GotoAction)
 " Jump to namespace/package/module
-map <leader>sn <Action>(GotoNamespace)
+map <leader>pn <Action>(GotoNamespace)
 " Jump to specific keywords in the project
-map <leader>sk <Action>(GotoKeyword)
+map <leader>pk <Action>(GotoKeyword)
 
 " Copy the absolute file path
 map <leader>fa <Action>(CopyAbsolutePath)
@@ -138,17 +138,17 @@ map <leader>fp <Action>(CopyContentRootPath)
 " ==================================
 
 " Go to definition/declaration of symbol under cursor
-map ,gd <Action>(GotoDeclaration)
+map mgd <Action>(GotoDeclaration)
 " Go to the type definition of a variable
-map ,gy <Action>(GotoTypeDeclaration)
+map mgy <Action>(GotoTypeDeclaration)
 " Jump to implementation of an interface or abstract method
-map ,gi <Action>(GotoImplementation)
+map mgi <Action>(GotoImplementation)
 " Jump to test for the current class/method
-map ,gt <Action>(GotoTest)
+map mgt <Action>(GotoTest)
 " Jump to overridden method in the parent class
-map ,gm <Action>(GotoSuperMethod)
+map mgm <Action>(GotoSuperMethod)
 " Jump to a specific line number
-map ,gl <Action>(GotoLine)
+map mgl <Action>(GotoLine)
 
 " ==================================
 " Code Analysis & Usages
@@ -185,9 +185,9 @@ map <S-f> <Action>(Find)
 " Opens the replace dialog in the current file
 map <S-r> <Action>(Replace)
 " Opens the global search dialog in the project
-map <leader>ff <Action>(FindInPath)
+map <leader>sp <Action>(FindInPath)
 " Opens the global replace dialog in the project
-map <leader>fr <Action>(ReplaceInPath)
+map <leader>sr <Action>(ReplaceInPath)
 
 " ==================================
 " Refactoring & Formatting
@@ -207,11 +207,11 @@ map <leader>rs <Action>(ChangeSignature)
 map <leader>rr <Action>(Refactorings.QuickListPopupAction)
 
 " Format the current file according to coding standards
-map <leader>cf <Action>(ReformatCode)
+map <leader>== <Action>(ReformatCode)
 " Optimize imports by removing unused ones and sorting existing imports
-map <leader>co <Action>(OptimizeImports)
+map <leader>=o <Action>(OptimizeImports)
 " Rearrange code elements according to project structure settings
-map <leader>cr <Action>(RearrangeCode)
+map <leader>=r <Action>(RearrangeCode)
 
 " ==================================
 " Code Editing & Generation
