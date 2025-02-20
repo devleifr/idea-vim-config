@@ -337,3 +337,51 @@ nmap <leader>kk <Action>(:cursive.actions.paredit/kill-sexp)
 " Threading macros (-> and ->>)
 nmap <leader>k> <Action>(:cursive.actions.paredit/thread-form)
 nmap <leader>k< <Action>(:cursive.actions.paredit/unthread-form)
+
+" ==================================
+" Clojure REPL
+" ==================================
+
+" Jump to REPL
+nmap ,rj <Action>(:cursive.repl.actions/jump-to-repl)
+" Jump to REPL output
+nmap ,ro <Action>(:cursive.repl.actions/jump-to-output)
+" Clear REPL
+nmap ,rc <Action>(:cursive.repl.actions/clear-repl)
+" Execute expression (eval expression in the REPL buffer)
+nmap ,eE <Action>(:cursive.repl.actions/execute)
+" Run last sexp
+nmap ,ee <Action>(:cursive.repl.actions/run-last-sexp)
+" Run top-level sexp
+nmap ,eR <Action>(:cursive.repl.actions/run-top-sexp)
+" Load current file into REPL
+nmap ,el <Action>(:cursive.repl.actions/load-file)
+" Macroexpand
+nmap ,em <Action>(:cursive.repl.actions/macroexpansion)
+" Interrupt running code
+nmap ,ri <Action>(:cursive.repl.actions/interrupt)
+" Switch namespace
+nmap ,rn <Action>(:cursive.repl.actions/switch-namespace)
+" Sync files with REPL
+nmap ,rs <Action>(:cursive.repl.actions/sync-files)
+" Reconnect REPL
+nmap ,rr <Action>(:cursive.repl.actions/reconnect)
+" Stop REPL
+nmap ,rx <Action>(:cursive.repl.actions/stop)
+" Toggle Auto-Scroll in REPL
+nmap ,ra <Action>(:cursive.repl.actions/toggle-auto-scroll)
+" Toggle Soft Wrap
+nmap ,rw <Action>(:cursive.repl.actions/toggle-soft-wrap)
+
+" ==================================
+" Clojure Testing
+" ==================================
+
+" Run last test
+nmap ,tl <Action>(:cursive.testing.actions/rerun-last-test)
+" Run namespace tests
+nmap ,tn <Action>(:cursive.testing.actions/run-ns-tests)
+" Run single test (under cursor)
+nmap ,tt <Action>(:cursive.testing.actions/run-single-test)
+" Remove test markers
+nmap ,tc <Action>(:cursive.testing.actions/remove-test-markers)
