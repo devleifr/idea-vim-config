@@ -105,9 +105,9 @@ map <A-l> <C-w>k
 map <A-;> <C-w>l
 
 " Switch to the next tab
-map <leader>tn <Action>(NextTab)
+map <leader>bn <Action>(NextTab)
 " Switch to the previous tab
-map <leader>tp <Action>(PreviousTab)
+map <leader>bp <Action>(PreviousTab)
 
 " ==================================
 " Navigation: Project & Code Structure
@@ -138,17 +138,17 @@ map <leader>fp <Action>(CopyContentRootPath)
 " ==================================
 
 " Go to definition/declaration of symbol under cursor
-map <leader>gd <Action>(GotoDeclaration)
+map ,gd <Action>(GotoDeclaration)
 " Go to the type definition of a variable
-map <leader>gy <Action>(GotoTypeDeclaration)
+map ,gy <Action>(GotoTypeDeclaration)
 " Jump to implementation of an interface or abstract method
-map <leader>gi <Action>(GotoImplementation)
+map ,gi <Action>(GotoImplementation)
 " Jump to test for the current class/method
-map <leader>gt <Action>(GotoTest)
+map ,gt <Action>(GotoTest)
 " Jump to overridden method in the parent class
-map <leader>gm <Action>(GotoSuperMethod)
+map ,gm <Action>(GotoSuperMethod)
 " Jump to a specific line number
-map <leader>gl <Action>(GotoLine)
+map ,gl <Action>(GotoLine)
 
 " ==================================
 " Code Analysis & Usages
@@ -237,6 +237,9 @@ map <C-i> <Action>(MoveStatementDown)
 " Move the current statement up
 map <C-o> <Action>(MoveStatementUp)
 
+" Toggle Line Numbers
+map <leader>tn <Action>(EditorGutterToggleGlobalLineNumbers)
+
 " ==================================
 " Navigation & History Shortcuts
 " ==================================
@@ -250,7 +253,7 @@ map <leader>lc <Action>(JumpToLastChange)
 " Open the 'Recent Locations' popup (recently edited places)
 map <leader>ll <Action>(RecentLocations)
 " Open the 'Recent Files' popup
-map <C-;> <Action>(RecentFiles)
+map <leader>bb <Action>(RecentFiles)
 " Navigate forward in navigation history
 map <S-k> <Action>(Forward)
 " Navigate backward in navigation history
@@ -275,6 +278,17 @@ map <leader>fo <Action>(OpenFile)
 " Create a new scratch file
 map <leader>fs <Action>(NewScratchFile)
 " Close the current file
-map <leader>qc <Action>(CloseContent)
+map <leader>bd <Action>(CloseContent)
 " Close all opened files
-map <leader>qa <Action>(CloseAllEditors)
+map <leader>ba <Action>(CloseAllEditors)
+
+" ==================================
+" Version Control
+" ==================================
+
+" Open Version Control Tool
+map <leader>gg <Action>(ActivateVersionControlToolWindow)
+" Open VCS Dispatch Menu
+map <leader>gm <Action>(Vcs.QuickListPopupAction)
+" Show Git blame
+map <leader>gba <Action>(Annotate)
